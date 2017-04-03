@@ -1,0 +1,18 @@
+<script id="OptionGroup" type="text/mustache">
+  <h2>{{sPrompt}}</h2>
+  <div class="choices">
+    {{#choices}}
+      <a href="#" id="{{id}}" class="js-choice choice">
+        <span class="choice-num">{{letter}}</span>
+        <span class="checkmark">&#x2713;</span>
+        <span class="xmark">&#x2718;</span>
+        <span class="choice-text">{{&sChoiceText}}</span>
+      </a>
+    {{/choices}}
+  </div>
+  <br />
+  <div class="actions">
+    <div class="js-submit submit-button action-button right">{{#label}}sSubmit{{/label}}</div>
+  </div>
+  <div class="js-feedback"></div>
+</script>

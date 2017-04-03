@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<labels>
+	<label id="GameTitle">Austin 2040</label>
+
+	<label id="restart">Play Again</label>
+	<label id="use">USE</label>
+
+	<label id="round1_1"><![CDATA[Our population is growing... Everyone needs water. There are lots of ideas about what to do...]]></label>
+	<label id="round1_2">You're the Grand Ruler of Texas, or whatever. You need to take action!</label>
+	<label id="round1_prompt">SPIN THE WHEEL AND CHOOSE WISELY!</label>
+
+	<label id="round2_1">More people moved here!  Now we really need to use water wisely.</label>
+	<label id="round2_2">Hey, you're the one in charge here. Better do something, huh?</label>
+	<label id="round2_prompt">GO ON, SPIN THE WHEEL!</label>
+
+
+	<label id="round3_1">Time keeps on slippin' into the future!</label>
+	<label id="round3_2">Will we even make it to 2040? It's totally up to you.</label>
+	<label id="round3_prompt">TURN THAT WHEEL AND MAKE A CHOICE!</label>
+
+
+	<label id="round4_1">All these people need water to live and stuff.  Nature needs water, too.</label>
+	<label id="round4_2">Better make good choices... or else.</label>
+	<label id="round4_prompt">YOU KNOW WHAT TO DO!</label>
+
+	<label id="round5_1">Wow, our population is crazy big! Can we strike a balance?</label>
+	<label id="round5_2">You alone decide our fate!!! (not really, but, you know, in this game) </label>
+	<label id="round5_prompt">SPIN, BABY, SPIN!</label>
+
+
+	<label id="round6_1">Dude, it is the future!  Look at all these people.</label>
+	<label id="round6_2">We need a healthy, flowing river. C'mon, you got this!  </label>
+	<label id="round6_prompt">GO - CHOOSE - WIN!</label>
+
+	<label id="endState0Title">BONE DRY</label>
+	<label id="endState0">You've doomed us all! Good thing it's just a game.</label>
+	<label id="endState1Title">TINY TRICKLE</label>
+	<label id="endState1">There's not enough for nature.</label>
+	<label id="endState2Title">SAD STREAM</label>
+	<label id="endState2">You left some water but we need more flowing downstream.</label>
+	<label id="endState3Title">FINE FLOW</label>
+	<label id="endState3">Pretty good. That's a nice river you've got there.</label>
+	<label id="endState4Title">ROLLING RIVER</label>
+	<label id="endState4">Woah! You are a genius. Please be our leader!</label>
+</labels>

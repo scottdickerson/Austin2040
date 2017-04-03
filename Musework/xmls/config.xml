@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<configs>
+	<profile name="Game">
+		<config name="bDeselctable" value="false" />
+	</profile>
+
+	<!-- initial starting values for the game model -->
+	<profile name="GameModel">
+		<config name="water" value="175" />
+		<config name="resources" value="70" />
+		<config name="population" value="40" />
+		<config name="baseWaterUsage" value="60" />
+		<config name="baseResourceAccumulation" value="30" />
+		<config name="basePopulationGrowth" value="60" />
+		<config name="startYear" value="2014" />
+		<config name="endYear" value="2040" />
+		<config name="rounds" value="6" />
+		<config name="round" value="0" />
+		<config name="maxWater" value="175" />
+		<config name="maxResources" value="150" />
+	</profile>
+
+
+	<profile name="SolutionWheel">
+		<config name="spinDecay" value="0.92" />
+		<config name="startSpeed" value="40" />
+		<config name="stopThreshold" value="30" />
+	</profile>
+
+	<profile name="landscape">
+		<config name="ammounts" value="[0.6, 0.49, 0.37, 0.25, 0.0]" />
+	</profile>
+
+	<profile name="RoundTexts">
+		<config name="textDelay" value="800" />
+		<config name="round1" value="1,2,forcast,3,4,5" />
+		<config name="round2" value="1,2,forcast,3,4" />
+		<config name="round3" value="1,2,forcast,3,4" />
+		<config name="round4" value="1,2,3,forcast,4,5" />
+		<config name="round5" value="1,2,forcast,3,4" />
+		<config name="round6" value="1,2,forcast,3,4,5" />
+	</profile>
+
+	<profile name="StartScreen">
+		<config name="instructionTime" value="4500" />
+	</profile>
+
+	<profile name="ScreenSaver">
+		<config name="timer" value="60000" />
+	</profile>
+
+	<profile name="MoreTime">
+		<config name="timer" value="540000" />
+	</profile>
+
+
+
+</configs>

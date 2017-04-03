@@ -1,0 +1,328 @@
+
+
+.debug-launcher{
+	font-family: Century Gothic, sans-serif;
+	position: absolute;
+	z-index:5000;
+	bottom:10px;
+	right:0px;
+	cursor: pointer;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+}
+.debug-toggle-button{
+	-webkit-border-top-left-radius: 10px;
+	-webkit-border-bottom-left-radius: 10px;
+	-moz-border-radius-topleft: 10px;
+	-moz-border-radius-bottomleft: 10px;
+	border-top-left-radius: 10px;
+	border-bottom-left-radius: 10px;
+	padding: 10px;
+	padding-right: 10px;
+
+	background: #ffffff;
+	border:1px solid #000000;
+	border-right:none;
+	font-size: 0.8em;
+}
+.debug-launcher.notify .debug-toggle-button{
+	border-color:#d42b27;
+	color:#d42b27;
+}
+.debug-container{
+	font-family: Century Gothic, sans-serif;
+	z-index: 5001;
+	width: 500px;
+	position: fixed;
+	background: #ffffff;
+	border:1px solid #000000;
+	filter:alpha(opacity=90);
+    opacity:0.9;
+    display: none;
+    right:0;
+    top:10px;
+}
+
+/* if animo is used keep chrome from render tds with thick borders */
+.debug-container *{
+	backface-visibility: visible;
+	-o-backface-visibility: visible;
+	-moz-backface-visibility: visible;
+	-webkit-backface-visibility: visible;
+}
+
+.debug-panel{
+	height:100%;
+	overflow: auto;
+	font-family: Century Gothic, sans-serif;
+}
+.debug-panel pre{
+	font-family: Century Gothic, sans-serif;
+}
+.debug-panel h2{
+	margin: 0;
+	padding: 2px 6px;
+}
+
+.debug-panel h4{
+	margin: 0;
+	padding: 2px 6px;
+	color: #ffffff;
+	background-color: #069;
+}
+
+.debug-menu {
+	width: 90%;
+	float: left;
+	margin: 0 0;
+	padding: 0;
+	list-style: none;
+	background-color: #f2f2f2;
+	border-bottom: 1px solid #ccc;
+	border-top: 1px solid #ccc;
+	padding-right: 10%;
+}
+.debug-close{
+	position: absolute;
+	top:10px;
+	right:10px;
+	cursor: pointer;
+}
+.debug-menu li {
+	float: left;
+}
+.debug-menu li a {
+	display: block;
+	padding: 6px 10px;
+	text-decoration: none;
+	font-weight: bold;
+	color: #069;
+	border-right: 1px solid #ccc;
+	border-bottom: 1px solid #ccc;
+	cursor: pointer;
+}
+.debug-menu li a:hover,  .debug-menu li.selected a {
+	color: #c00;
+	background-color: #fff;
+}
+.debug-header:after, .debug-clear:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.debug-split-horz{
+
+}
+.debug-horz-40{
+	height:40%;
+	overflow: auto;
+
+}
+.debug-horz-50{
+	height:50%;
+	overflow: auto;
+}
+.debug-horz-60{
+	height:59%;
+	overflow: auto;
+}
+.debug-list-button{
+	padding:5px;
+	cursor: pointer;
+	border-bottom:1px solid #a78da1;
+}
+.debug-list-button-small{
+	padding:3px;
+	cursor: auto;
+	font-size: 0.9em;
+}
+.debug-depth-1{
+	margin-left:5px;
+}
+.debug-depth-2{
+	margin-left:10px;
+}
+.debug-depth-3{
+	margin-left:15px;
+}
+.debug-depth-4{
+	margin-left:20px;
+}
+.debug-depth-5{
+	margin-left:30px;
+}
+.debug-depth-6{
+	margin-left:40px;
+}
+.debug-depth-7{
+	margin-left:50px;
+}
+.debug-depth-8{
+	margin-left:60px;
+}
+.debug-depth-9{
+	margin-left:70px;
+}
+.debug-depth-10{
+	margin-left:80px;
+}
+.debug-depth-11{
+	margin-left:90px;
+}
+
+.debug-button{
+	display: inline-block;
+	padding: 3px 5px;
+	color: #069;
+	border: 1px solid #ccc;
+	cursor: pointer;
+}
+.debug-button:hover{
+	color: #c00;
+	background-color: #fff;
+}
+.debug-panel h4 .debug-button{
+	color: #fff;
+	font-size: 0.7em;
+	padding: 1px 5px;
+}
+.debug-panel h4  .debug-button:hover{
+	color: #c00;
+}
+.debug-left{
+	float:left;
+}
+.debug-right{
+	float: right;
+}
+
+.debug-table{
+	width:100%;
+}
+.debug-table td{
+	padding: 5px;
+	padding-right: 20px;
+
+}
+.debug-table th{
+	text-align: left;
+	padding: 8px 5px;
+	background-color: #f2f2f2;
+	font-size: 1.1em;
+}
+.debug-table tr:nth-child(odd)		{ background-color:#e7edf2; }
+.debug-table tr:nth-child(even)		{ background-color:#fff; }
+
+.debug-inspect div{
+	padding: 0 6px;
+}
+.debug-section{
+	padding: 8px;
+	border-bottom:1px solid #ababab;
+}
+.debug-small-row{
+	font-size: 0.8em;
+	padding: 4px 6px;
+	border-bottom: 1px solid #ababab;
+}
+.debug-activiy-key-row{
+	font-size: 0.8em;
+	padding: 4px 6px;
+	border-bottom: 1px solid #ababab;
+}
+.debug-activiy-key-row{
+	line-height: 1.5em;
+}
+.debug-answer-current{
+	background-color: #e7edf2;
+}
+.debug-row{
+	padding: 4px 6px;
+}
+.debug-text{
+	margin: 10px 6px;
+	font-size: 1em;
+	line-height: 1.3em;
+}
+.debug-highlight{
+	background-color: #c4e068;
+}
+.debug-right{
+	float:right;
+}
+.debug-help-header{
+	padding:5px;
+	color: #dfdfdf;
+	background-color: #069;
+	border-bottom: 1px solid #ffffff;
+	cursor: pointer;
+}
+.debug-help-header:hover{
+	color: #ffffff;
+}
+.debug-help-body{
+	padding:5px;
+	display: none;
+}
+.debug-help-body p{
+	margin:8px 0;
+	padding: 0;
+}
+.dbgci{
+	margin:10px 0;
+	width:130px;
+	border:1px solid #000;
+	font-size: 0.8em;
+	padding:0.2em;
+}
+.debug-validator-invalid{
+	background-color:#c00;
+	color:#ffffff;
+}
+.debug-validator-valid{
+	background-color:#3d9043;
+	color:#ffffff;
+}
+.debug-validator-errors{
+	color:#c9252b;
+	padding-left: 15px;
+	margin: 0;
+}
+.debug-reqs-list{
+	float: right;
+	font-size: 0.9em;
+}
+.debug-complete .debug-reqs-list{
+	color:#3d9043;
+}
+.debug-sync-table td{
+	padding: 8px;
+}
+.debug-sync-seconds{
+	text-align: center;
+	border: 1px solid #000000;
+	border-radius: 10px;
+	padding: 5px;
+	margin-left: 10px;
+}
+
+.debug-sync-number{
+	font-size: 3em;
+}
+.debug-sync-slider{
+	display: inline-block;
+	vertical-align: top;
+	width:70%;
+	margin-top: 4px;
+	margin-right: 10px;
+}
+.debug-sync-slider .ui-slider-handle{
+	background: #069;
+}
+.debug-sync-slider .ui-widget-content{
+	background: #fff;
+}
+.debug-sync-slider .ui-widget-header{
+	background: #B3C6FF;
+}

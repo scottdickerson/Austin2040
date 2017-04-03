@@ -1,0 +1,22 @@
+<div class="prompt">{{&sPrompt}}</div>
+<div class="js-feedback feedback"></div>
+
+<div class="result">
+	<canvas class="js-result" height="{{config.nCanvasWidth}}" width="{{config.nCanvasHeight}}"></canvas>
+	<div class="js-percent-actual percent"></div>
+</div>
+
+<div class="holder animated zoomIn delay05">
+	<canvas class="js-chart" height="{{config.nCanvasWidth}}" width="{{config.nCanvasHeight}}"></canvas>
+	<div class="js-thumb thumb"></div>
+	<div class="js-percent percent"></div>
+	<div class="js-submit submit button abs">{{#label}}sSubmit{{/label}}</div>
+</div>
+
+<div class="tab tab-answered abs animated fadeInLeft">
+	<div class="label white thin">{{#label}}sYourAnswer{{/label}}</div>
+</div>
+
+<div class="tab tab-actual abs animated fadeInRight">
+	<div class="label white thin">{{#label}}sActualAnswer{{/label}}</div>
+</div>

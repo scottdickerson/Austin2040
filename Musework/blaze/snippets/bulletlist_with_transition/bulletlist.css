@@ -1,0 +1,32 @@
+.bulletlist{
+	margin-top: 20px;
+}
+.bulletlist li{
+	margin-top: 10px;
+}
+.bullet-list-icon:{
+
+}
+/*
+	individual bullet styling
+	to style on a single segment
+	use segment class
+
+	example:
+	stlye the bullet icon to a custom icon for each bullet
+
+	.chap1-sect2-clip3-s01 .bullet-0 .bullet-list-icon{
+		background:url('bullet0.png');
+	}
+
+	.chap1-sect2-clip3-s01 .bullet-1 .bullet-list-icon{
+		background:url('bullet0.png');
+	}
+
+*/
+.bullet-0{
+
+}
+.bullet-1{
+
+}

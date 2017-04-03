@@ -1,0 +1,59 @@
+/* bare bones option group css */
+.activity-option-group .choice{
+
+}
+.activity-option-group.enabled .choice{
+  cursor: pointer;
+}
+.activity-option-group.enabled .choice:hover{
+  background: #ccc;
+}
+
+.activity-option-group .choice.selected, .activity-option-group.enabled .choice.selected:hover{
+    background: #07f;
+    color: #ffffff;
+}
+/* hide any check marks of xmarks until needed*/
+.activity-option-group .choice.selected.correct span.checkmark, .activity-option-group .choice.selected.correct span.xmark{
+  display: none;
+}
+
+/* show results in feedback state */
+.activity-option-group .choice.selected.correct{
+  border-color:#0f0;
+}
+
+.activity-option-group .choice.selected.correct span.checkmark{
+  display:block;
+  color:#0f0;
+}
+
+/* highlight the correct response if it is unselected */
+.activity-option-group .choice.unselected.correct{
+  border-color:#ff0;
+}
+
+.activity-option-group .choice.selected.incorrect{
+  border-color: #f00;
+}
+
+.activity-option-group .choice.selected.incorrect span.xmark{
+  display: block;
+  color: #f00;
+}
+
+/* hide the submit by default */
+.activity-option-group .submit-button{
+    display:none;
+}
+/* greyed out on ready (no choices selected) */
+.activity-option-group.ready-state .submit-button{
+  display:block;
+  background: #999;
+}
+.activity-option-group.active-state .submit-button{
+    display:block;
+    background: #fff;
+}
+
+

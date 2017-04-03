@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<app appVer="1.0" id="Enspire Learning">
+
+
+    <!--    start solutions  -->
+    <solution id="0">
+        <title>Pipe Sensors</title>
+        <description>In-pipe sensors detect leaks and prevent bursts</description>
+        <strategy>Technology</strategy>
+        <image>s00-pipe_sensors</image>
+        <resources>20</resources>
+        <water>25</water>
+        <incremental_pop>0</incremental_pop>
+        <incremental_res>2</incremental_res>
+        <adjust_water>5</adjust_water>
+    </solution>
+    <solution id="1">
+        <title>Watering Robots</title>
+        <description>Use sensors and weather data to decide when to water</description>
+        <strategy>Technology</strategy>
+        <image>s02-watering_robots</image>
+        <resources>20</resources>
+        <water>25</water>
+        <incremental_pop>0</incremental_pop>
+        <incremental_res>1</incremental_res>
+        <adjust_water></adjust_water>
+    </solution>
+    <solution id="2">
+        <title>Underground Lakes</title>
+        <description>Store our water underground safe from evaporation</description>
+        <strategy>Technology</strategy>
+        <image>s02-underground_lakes</image>
+        <resources>50</resources>
+        <water>35</water>
+        <incremental_pop>0</incremental_pop>
+        <incremental_res>0</incremental_res>
+        <adjust_water></adjust_water>
+    </solution>
+    <solution id="3">
+        <title>STEM Scientists</title>
+        <description>Train and hire smart scientists</description>
+        <strategy>Technology</strategy>
+        <image>s03-STEM_scientists</image>
+        <resources>45</resources>
+        <water>30</water>
+        <incremental_pop>0</incremental_pop>
+        <incremental_res>1</incremental_res>
+        <adjust_water>5</adjust_water>
+    </solution>
+    <solution id="4">
+        <title>Teach People</title>
+        <description>Educate everyone to save water</description>
+        <strategy>Conservation</strategy>
+        <image>s04-Teach</image>
+        <resources>40</resources>
+        <water>25</water>
+        <incremental_pop>0</incremental_pop>
+        <incremental_res>0</incremental_res>
+        <adjust_water>5</adjust_water>
+    </solution>
+    <solution id="5">
+        <title>Lawn Limits</title>
+        <description>Plant native landscapes</description>
+        <strategy>Conservation</strategy>
+        <image>s05-lawnLimits</image>
+        <resources>40</resources>
+        <water>25</water>
+        <incremental_pop>0</incremental_pop>
+        <incremental_res>1</incremental_res>
+        <adjust_water></adjust_water>
+    </solution>
+    <solution id="6">
+        <title>Gray Water</title>
+        <description>Clean and reuse wastewater</description>
+        <strategy>Conservation</strategy>
+        <image>s06-graywater</image>
+        <resources>10</resources>
+        <water>20</water>
+        <incremental_pop>-3</incremental_pop>
+        <incremental_res>0</incremental_res>
+        <adjust_water></adjust_water>
+    </solution>
+    <!--<solution id="7">
+        <title>Crop Stop</title>
+        <description>Reduce irrigated farming</description>
+        <strategy>Conservation</strategy>
+        <image>s07-cropStop</image>
+        <resources>60</resources>
+        <water>80</water>
+        <incremental_pop>-2</incremental_pop>
+        <incremental_res>-2</incremental_res>
+        <adjust_water></adjust_water>
+    </solution>-->
+    <solution id="8">
+        <title>Price Hike</title>
+        <description>Charge more for water</description>
+        <strategy>Conservation</strategy>
+        <image>s08_priceHike</image>
+        <resources>10</resources>
+        <water>20</water>
+        <incremental_pop>-2</incremental_pop>
+        <incremental_res>3</incremental_res>
+        <adjust_water></adjust_water>
+    </solution>
+    <!--<solution id="9">
+        <title>Population Limits</title>
+        <description>Restrict number of new residents</description>
+        <strategy>Conservation</strategy>
+        <image>s09-PopLimits</image>
+        <resources>50</resources>
+        <water>25</water>
+        <incremental_pop>-5</incremental_pop>
+        <incremental_res>-3</incremental_res>
+        <adjust_water></adjust_water>
+    </solution>-->
+    <solution id="10">
+        <title>New Laws</title>
+        <description>Get Texas leaders to simplify water laws</description>
+        <strategy>Conservation</strategy>
+        <image>s10-LegalAction</image>
+        <resources>50</resources>
+        <water>30</water>
+        <incremental_pop>0</incremental_pop>
+        <incremental_res>0</incremental_res>
+        <adjust_water>5</adjust_water>
+    </solution>
+    <solution id="11">
+        <title>Dam a Lake</title>
+        <description>Dam a river to collect more rainfall</description>
+        <strategy>New Sources</strategy>
+        <image>s11-damALake</image>
+        <resources>95</resources>
+        <water>55</water>
+        <incremental_pop>2</incremental_pop>
+        <incremental_res>2</incremental_res>
+        <adjust_water></adjust_water>
+    </solution>
+    <solution id="12">
+        <title>Tap Aquifers</title>
+        <description>Tap into underground semi-salty aquifers</description>
+        <strategy>New Sources</strategy>
+        <image>s12-tapAquifers</image>
+        <resources>70</resources>
+        <water>60</water>
+        <incremental_pop>2</incremental_pop>
+        <incremental_res>2</incremental_res>
+        <adjust_water></adjust_water>
+    </solution>
+    <solution id="13">
+        <title>Seawater</title>
+        <description>Take the salt out of ocean water</description>
+        <strategy>New Sources</strategy>
+        <image>s13-seawater</image>
+        <resources>95</resources>
+        <water>50</water>
+        <incremental_pop>4</incremental_pop>
+        <incremental_res>4</incremental_res>
+        <adjust_water></adjust_water>
+    </solution>
+    <solution id="14">
+        <title>Pipe It In</title>
+        <description>Pipe in water from other places</description>
+        <strategy>New Sources</strategy>
+        <image>s14-pipeItIn</image>
+        <resources>90</resources>
+        <water>60</water>
+        <incremental_pop>1</incremental_pop>
+        <incremental_res>1</incremental_res>
+        <adjust_water></adjust_water>
+    </solution>
+    <solution id="16">
+        <title>Water Cops</title>
+        <description>Enforce the rules</description>
+        <strategy>Conservation</strategy>
+        <image>s16-waterCops</image>
+        <resources>10</resources>
+        <water>5</water>
+        <incremental_pop>1</incremental_pop>
+        <incremental_res>1</incremental_res>
+        <adjust_water></adjust_water>
+    </solution>
+    <solution id="17">
+        <title>Water Recycling</title>
+        <description>Use water again</description>
+        <strategy>Technology</strategy>
+        <image>s17-waterRecycling</image>
+        <resources>40</resources>
+        <water>20</water>
+        <incremental_pop>1</incremental_pop>
+        <incremental_res>1</incremental_res>
+        <adjust_water></adjust_water>
+    </solution>
+    <!-- end solutions -->
+
+
+
+
+    <!--         start events               -->
+    <event id="0">
+        <title>Severe Drought</title>
+        <condition>extreme</condition>
+        <description>No rain, your water level is going down.</description>
+        <resources>-40</resources>
+        <icon>severe</icon>
+        <water>-30</water>
+        <likelihood>5</likelihood>
+    </event>
+    <event id="1">
+        <title>Drought</title>
+        <condition>extreme</condition>
+        <description>Little rain, your water level is going down.</description>
+        <icon>drought</icon>
+        <resources>-30</resources>
+        <water>-20</water>
+        <likelihood>10</likelihood>
+    </event>
+    <event id="2">
+        <title>Rainy Season</title>
+        <condition>extreme</condition>
+        <description>Lots of rain, lucky you!</description>
+        <icon>rainy</icon>
+        <resources>0</resources>
+        <water>30</water>
+        <likelihood>5</likelihood>
+    </event>
+    <event id="3">
+        <title>Normal</title>
+        <condition>normal</condition>
+        <!-- This event should not display to the player. If it's a normal season, nothing happens -->
+        <description>Average amounts of rain</description>
+        <resources>0</resources>
+        <water>15</water>
+        <likelihood>70</likelihood>
+    </event>
+    <!-- end events -->
+</app>

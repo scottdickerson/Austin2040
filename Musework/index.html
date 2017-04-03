@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<!-- meta moved to override a combatibility mode issue http://stackoverflow.com/questions/13896176/force-ie8-or-ie9-document-mode-to-standards -->
+
+
+<!--[if lt IE 7]>      <html class="ie6">    <![endif]-->
+<!--[if IE 7]>         <html class="ie7">    <![endif]-->
+<!--[if IE 8]>         <html class="ie8">    <![endif]-->
+<!--[if IE 9]>         <html class="ie9">    <![endif]-->
+<!--[if gt IE 9]>      <html class="ie10+">  <![endif]-->
+<!--[if !IE]><!-->     <html>                <!--<![endif]-->
+
+    <head>
+        <meta charset="utf-8">
+        <meta id="metaViewport" name="viewport" content="target-densitydpi=device-dpi, width=1024, height=device-height, initial-scale=1.0,maximum-scale=1.0, user-scalable=no">
+
+        <title>Austin 2040 - the future is in your hands</title>
+
+        <!-- style -->
+        <link rel="stylesheet" type="text/css" href="css/normalize.css" />
+        <link rel="stylesheet" type="text/css" href="css/kube.css" />
+        <link rel="stylesheet" type="text/css" href="css/animate.css" />
+        <link rel="stylesheet" type="text/css" href="css/game.css" />
+
+
+        <!--[if gte IE 9]>
+          <style type="text/css">
+            .gradient { filter: none; }
+          </style>
+        <![endif]-->
+
+        <!-- scripts -->
+        <!-- blaze framework scripts -->
+        <script type="text/javascript" src="blaze/build/blaze.dependencies.js"></script>
+        <script type="text/javascript" src="src/vendor/lettering.js"></script>
+        <script type="text/javascript" src="src/vendor/jquery.touchSwipe.js"></script>
+        <script type="text/javascript" src="src/vendor/howler.js"></script>
+
+        <script type="text/javascript" src="blaze/build/blaze.core.js"></script>
+        <script type="text/javascript" src="blaze/build/blaze.mixins.js"></script>
+
+        <!-- debug
+        <script type="text/javascript" src="blaze/debug/blaze.debug.js"></script>
+        <script type="text/javascript" src="blaze/debug/panels/blaze.debug.labels.js"></script>
+        <script type="text/javascript" src="blaze/debug/panels/blaze.debug.configs.js"></script>
+        <script type="text/javascript" src="blaze/debug/panels/blaze.debug.log.js"></script>
+
+        <script type="text/javascript" src="src/game.debug.js"></script>
+        <link rel="stylesheet" type="text/css" href="blaze/debug/blaze.debug.css" />-->
+
+        <script type="text/javascript" src="src/vendor/jquery.xml2json.js"></script>
+        <script type="text/javascript" src="src/game.js"></script>
+
+
+    </head>
+    <body>
+        <script type="text/javascript">
+            $(function() {
+                var game = new Blaze.dna.Game();
+            });
+
+            document.addEventListener("contextmenu", function(e){
+                e.preventDefault();
+            }, false);
+        </script>
+    </body>
+</html>

@@ -1,0 +1,59 @@
+/* bare bones mult choice css */
+.activity-mult-select .choice{
+
+}
+.activity-mult-select.enabled .choice{
+  cursor: pointer;
+}
+.activity-mult-select.enabled .choice:hover{
+  background: #ccc;
+}
+
+.activity-mult-select .choice.selected, .activity-mult-select.enabled .choice.selected:hover{
+    background: #07f;
+    color: #ffffff;
+}
+/* hide any check marks of xmarks until needed*/
+.activity-mult-select .choice.selected.correct span.checkmark, .activity-mult-select .choice.selected.correct span.xmark{
+  display: none;
+}
+
+/* show results in feedback state */
+.activity-mult-select .choice.selected.correct{
+  border-color:#0f0;
+}
+
+.activity-mult-select .choice.selected.correct span.checkmark{
+  display:block;
+  color:#0f0;
+}
+
+/* highlight the correct response if it is unselected */
+.activity-mult-select .choice.unselected.correct{
+  border-color:#ff0;
+}
+
+.activity-mult-select .choice.selected.incorrect{
+  border-color: #f00;
+}
+
+.activity-mult-select .choice.selected.incorrect span.xmark{
+  display: block;
+  color: #f00;
+}
+
+/* hide the submit by default */
+.activity-mult-select .submit-button{
+    display:none;
+}
+/* greyed out on ready (no choices selected) */
+.activity-mult-select.ready-state .submit-button{
+  display:block;
+  background: #999;
+}
+.activity-mult-select.active-state .submit-button{
+    display:block;
+    background: #fff;
+}
+
+

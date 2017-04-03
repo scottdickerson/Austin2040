@@ -1,0 +1,177 @@
+<script id="game_container" type="text/mustache">
+	<div id="GameFrame" class="game-frame">
+	    <div id="LeftCol" class="left-col"></div>
+	    <div id="CenterCol" class="center-col healthy">
+	    	<div class="bar-left"></div>
+	    	<div class="bar-right"></div>
+	    	<div class="center-shadow"></div>
+	    </div>
+	    <div id="RightCol" class="right-col"></div>
+	</div>
+</script>
+
+
+<script id="start_screen" type="text/mustache">
+	<div class="title">
+		<img id="Title" src="images/startscreen/canyoumakeit.png" class="title-text animated zoomIn" />
+	</div>
+	<div class="how-text">
+		<img id="How1" src="images/startscreen/howto01.png" class="how-1 hidden animated zoomIn" />
+		<img id="How2" src="images/startscreen/howto02.png" class="how-2 hidden animated zoomIn" />
+		<img id="How3" src="images/startscreen/howto03.png" class="how-3 hidden animated zoomIn" />
+		<img id="How4" src="images/startscreen/howto04.png" class="how-4 hidden animated zoomIn" />
+	</div>
+	<div class="actions">
+		<img id="PlayButton" src="images/startscreen/playbutton.png" class="play-button hidden animated zoomIn" />
+		<img id="PlayButton2" src="images/startscreen/playbutton.png" class="play-button2 hidden animated zoomIn" />
+	</div>
+</script>
+
+<script id="resource_meter" type="text/mustache">
+	<div class="resource-meter-bar"></div>
+</script>
+
+
+<script id="timeline" type="text/mustache">
+	<div class="year-bar">
+		{{#years}}
+		<div class="y{{.}} year-dots">
+			<div class="dot d1 hidden animated"></div>
+			<div class="dot d2 hidden animated"></div>
+			<div class="dot d3 hidden animated"></div>
+			<div class="dot d4 hidden animated"></div>
+			<div class="dot d5 hidden animated"></div>
+		</div>
+		{{/years}}
+	</div>
+	<div class="header-restart-button"></div>
+</script>
+
+<script id="round_screen" type="text/mustache">
+	<div class="round-inner">
+		<div class="round-info"></div>
+		<div class="js-prompt prompt hidden animated zoomIn"></div>
+	</div>
+</script>
+
+<script id="moretime" type="text/mustache">
+	<div class="moretime-title">Do you need more time?</div>
+	<div class="js-yes enabled yes-button">Yes</div>
+</script>
+
+<script id="popup" type="text/mustache">
+	<div class="solution-icon" style="background-image: url('images/solutions/{{image}}_icon.png');"></div>
+	<div class="solution-name">{{title}}</div>
+	<div class="solution-description">{{description}}</div>
+	<div class="water-benefit">{{water}}</div>
+	<div class="resource-cost">{{resources}}</div>
+	<div class="solution-strategy">{{strategy}}</div>
+	<div class="{{#enabled}}js-use enabled{{/enabled}} use-button">{{#label}}use{{/label}}</div>
+</script>
+
+<script id="round_timer" type="text/mustache">
+	<div id="TimerDigit1" class="timer-digit"></div>
+	<div id="TimerDigit2"  class="timer-digit"></div>
+</script>
+
+<script id="solution_option" type="text/mustache">
+	<div id="solution{{id}}" class="solution-option" data-solution="{{id}}" style="background-image: url('images/solutions/{{image}}.png'); top:{{y}}px;"></div>
+</script>
+
+<script id="resource_meter" type="text/mustache">
+
+	<div class="resource-bar">
+		<div class="resource-counter"></div>
+	</div>
+	<div class="resource-overlay"></div>
+	<div class="resource-coin"></div>
+	<div class="resource-coin-sprite hidden"></div>
+</script>
+
+<script id="text_bubble" type="text/mustache">
+	<img class="r{{round}}-{{text}} text-bubble section-{{section}} hidden animated zoomIn" src="images/texts/r{{round}}_{{text}}.png" />
+</script>
+
+
+<script id="forcast" type="text/mustache">
+	<div class="forcast hidden animated zoomIn">
+		<img class="forcast-image item" src="images/weather/{{weather}}.png" />
+	</div>
+</script>
+
+<script id="end_screen" type="text/mustache">
+	<div class="title">
+		<img id="Title" src="images/endscreen/{{outcome}}.png" class="title-text animated zoomIn" />
+	</div>
+	<div class="how-text">
+		<img src="images/endscreen/{{text}}.png" class="end-text hidden animated zoomIn" />
+	</div>
+	<div class="actions">
+		<img id="ReplayButton" src="images/endscreen/replay.png" class="js-replay play-button hidden animated zoomIn" />
+	</div>
+</script>
+
+
+<script id="screen_saver" type="text/mustache">
+	<video src="video/screensaver.mp4" autoplay loop="true" height"1080" width="1920"></video>
+</script>
+
+
+<!-- custom debug panels -->
+
+<script id="debug_solutions" type="text/mustache">
+	{{#solutions}}
+	<h4>{{catagory}}</h4>
+
+	{{#items}}
+		<div class="debug-section">
+			<table class="table-simple debug-table">
+				<tr><th>id:</th><td> {{id}}</td></tr>
+				<tr><th>title:</th><td> {{title}}</td></tr>
+				<tr><th>description:</th><td> {{description}}</td></tr>
+				<tr><th>water cost:</th><td> {{water}}</td></tr>
+				<tr><th>resources cost:</th><td> {{resources}}</td></tr>
+				<tr><th>adjust water:</th><td>{{adjust_water}}</td></tr>
+			</table>
+		</div>
+	{{/items}}
+
+	{{/solutions}}
+</script>
+
+<script id="debug_events" type="text/mustache">
+	<h4>Events</h4>
+	{{#events}}
+		<div class="debug-section">
+		<table class="table-simple debug-table">
+		<tr><th>title:</th><td> {{title}}</td></tr>
+			<tr><th>description:</th><td> {{description}}</td></tr>
+			<tr><th>water cost:</th><td> {{water}}</td></tr>
+			<tr><th>resources cost:</th><td> {{resources}}</td></tr>
+			<tr><th>likelihood:</th><td> {{likelihood}}</td></tr>
+		</table>
+		</div>
+	{{/events}}
+
+	<h4>Random Weighted Event</h4>
+	<div class="debug-section clearfix">
+
+		<div class="debug-button debug-get-likelihood debug-right">get</div>
+		<div class="debug-random-game-event"></div>
+	</div>
+</script>
+
+<script id="debug_game" type="text/mustache">
+	<h4>Game Model</h4>
+
+	<div class="debug-section">
+		<table class="table-simple debug-table">
+			<tr><th>Resources:</th><td> {{resources}}</td>
+			<tr><th>Water:</th><td> {{water}}</td>
+			<tr><th>Population:</th><td> {{population}}</td>
+			<tr><th>Base Water Usage:</th><td> {{baseWaterUsage}}</td>
+			<tr><th>Base Population Increase Rate:</th><td> {{population}}</td>
+			<tr><th>Base Resource Accumulation:</th><td>{{baseResourceAccumulation}}</td>
+		</table>
+	</div>
+</script>

@@ -1,0 +1,15 @@
+<!-- a basic bullet list template -->
+<script id="BulletList" type="text/mustache">
+	<h2>{{sPrompt}}</h2>
+	<p>{{text}}</p>
+	<div>
+		<ul class="bullet-list">
+		{{#bullets}}
+			<li class="js-bullet bullet-{{i}}">
+				<img  class="js-bullet-icon bullet-icon" src="bullet_star.png" />&nbsp;&nbsp;
+				<span class="bullet-text">{{sBullet}}</span>
+			</li>
+		{{/bullets}}
+		</ul>
+	</div>
+</script>
