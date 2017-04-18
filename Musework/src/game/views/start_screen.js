@@ -3,7 +3,8 @@ Blaze.dna.StartScreen = Blaze.View.extend({
 	configid:'StartScreen',
 	mixins:['templated', 'configurable'],
 	events:{
-		'click .play-button':'start'
+		'click .play-button':'start',
+		'click .play-button2':'startWithTimer',
 	},
 	initialize:function() {
 		_.bindAll(this, 'next', 'showPlay');
@@ -28,8 +29,11 @@ Blaze.dna.StartScreen = Blaze.View.extend({
 		}
 	},
 	start:function() {
-		this.trigger('game:start');
+		this.trigger('game:startWithoutTimer');
 	},
+    startWithTimer:function() {
+        this.trigger('game:startWithTimer');
+    },
 	hide:function() {
 		this.$el.hide();
 	},
@@ -41,6 +45,9 @@ Blaze.dna.StartScreen = Blaze.View.extend({
 	},
 	showPlay:function() {
 		this.$('.play-button').show();
+		this.$('.play-button2').show();
+        this.$('.beginner').show();
+        this.$('.advanced').show();
 		this.trigger('game:canstart');
 	}
 });

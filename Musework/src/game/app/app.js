@@ -44,7 +44,7 @@ Blaze.dna.Game = Blaze.Application.extend({
 		'state:set':'state'
 	},
 	initialize:function() {
-		_.bindAll(this, 'createModels', 'onGameReady', 'createViews', 'startGame', 'startRound', 'next', 'updateTimeline', 'adjustPopulation', 'forcastWeather', 'adjustWater', 'adjustResources', 'startRoundTimer', 'showSolutions', 'selectSolution', 'showSolutionPrompt', 'adjustPopRes');
+		_.bindAll(this, 'createModels', 'onGameReady', 'createViews', 'startGame', 'startGameWithoutTimer', 'startGameWithTimer', 'startRound', 'next', 'updateTimeline', 'adjustPopulation', 'forcastWeather', 'adjustWater', 'adjustResources', 'startRoundTimer', 'showSolutions', 'selectSolution', 'showSolutionPrompt', 'adjustPopRes');
 
 
 		this.loadAssets()
@@ -75,7 +75,9 @@ Blaze.dna.Game = Blaze.Application.extend({
 		// create game components
 		this.addView('start', new Blaze.dna.StartScreen(
 		), "#GameFrame", {
-			'game:start':'startGame',
+            'game:start':'startGame',
+            'game:startWithoutTimer':'startGameWithoutTimer',
+            'game:startWithTimer':'startGameWithTimer',
 			'game:canstart':'startScreenSaverTimer'
 		});
 
@@ -121,6 +123,14 @@ Blaze.dna.Game = Blaze.Application.extend({
 			'solution:use':'selectSolution'
 		});
 
+        this.addView('moretime', new Blaze.dna.MoreTime({
+            model:this.gameModel
+        }), '#GameFrame', {
+            'moretime:yes':'yes',
+            'game:canstart':'startScreenSaverTimer',
+            'game:cannotstart':'clearScreenSaverTimer'
+        });
+
 		this.addView('end', new Blaze.dna.EndScreen({
 			model:this.gameModel
 		}), '#GameFrame', {
@@ -132,6 +142,8 @@ Blaze.dna.Game = Blaze.Application.extend({
 			model:this.gameModel
 		}), '#RightCol', {
 			'game:start':'startGame',
+            'game:startWithoutTimer':'startGameWithoutTimer',
+            'game:startWithTimer':'startGameWithTimer',
 			'game:spin':'showSolutions'
 		});
 
@@ -153,20 +165,33 @@ Blaze.dna.Game = Blaze.Application.extend({
 	startScreenSaverTimer:function() {
 		this.getView('saver').startTimer();
 	},
+    clearScreenSaverTimer:function() {
+        this.getView('saver').clearTimer();
+    },
 	showInstructions:function() {
 		this.getView('start').show();
-		this.getView('timer').intro();
 	},
 	startGame:function() {
-		this.getView('start').hide();
-		this.getView('timer').hide();
-		this.getView('saver').clearTimer();
-		this.gameModel.reset();
-		this.gameModel.advanceRound();
-		this.triggerGlobal('game:start', this.gameModel);
-		this.startRound();
-
+        this.getView('start').hide();
+        this.getView('timer').hide();
+        this.getView('saver').clearTimer();
+        this.gameModel.reset();
+        this.gameModel.advanceRound();
+        this.triggerGlobal('game:start', this.gameModel);
+        this.startRound();
+    },
+    startGameWithTimer:function() {
+        this.showTimer=true;
+        this.startGame();
+    },
+    startWarningTimer: function() {
+        // Start the warning timer
+        this.getView('moretime').startTimer();
 	},
+    startGameWithoutTimer:function() {
+        this.showTimer=false;
+        this.startGame();
+    },
 	startRound:function() {
 		this.triggerGlobal('game:round:start');
 		this.gameModel.depleteWater();
@@ -174,6 +199,10 @@ Blaze.dna.Game = Blaze.Application.extend({
 		this.gameModel.advanceRound();
 		this.gameModel.accumulateResources();
 		this.getView('timeline').up();
+        //Need to have the screensaver end the game
+        if (!this.showTimer) {
+            this.startWarningTimer();
+        }
 		Q.fcall(this.updateTimeline)
 			.then(this.adjustPopulation)
 			.then(this.adjustResources)
@@ -225,7 +254,7 @@ Blaze.dna.Game = Blaze.Application.extend({
 
 	// 6. Timer starts for current turn
 	startRoundTimer:function() {
-		if(!this.gameModel.isEnded()) {
+		if(!this.gameModel.isEnded() && this.showTimer) {
 			this.getView('timer').startTimer();
 		}
 	},
@@ -255,7 +284,10 @@ Blaze.dna.Game = Blaze.Application.extend({
 		}
 
 		this.getView('popup').hide();
-		this.getView('timer').stopTimer();
+        if (this.showTimer)
+            this.getView('timer').stopTimer();
+        //clear the screensaver timer
+        this.getView('saver').clearTimer();
 		this.getView('wheel').hide();
 
 		Q.fcall(this.adjustResources)

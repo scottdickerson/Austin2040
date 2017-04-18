@@ -1,4 +1,4 @@
-/*! this is a compiled file do not change austin2040.core - v0.1.0 - 2015-07-07 */
+/*! this is a compiled file do not change austin2040.core - v0.1.0 - 2017-04-17 */
 (function() {
 var i = 0;
 
@@ -239,7 +239,6 @@ Blaze.dna.WeatherEvents = Blaze.Collection.extend({
 
 });
 })();
-
 (function() {
 Blaze.dna.EndScreen = Blaze.View.extend({
 	className:'end-screen overlay',
@@ -312,6 +311,51 @@ Blaze.dna.Landscape = Blaze.View.extend({
 	getAmt:function(n) {
 		return this.config.ammounts[n];
 	}
+});
+})();
+(function() {
+Blaze.dna.MoreTime = Blaze.View.extend({
+    className:'moretime overlay',
+    configid:'MoreTime',
+    mixins:['hashBinder', 'globalEvents' ,'templated', 'configurable'],
+    events:{
+        'click .js-yes':'yes'
+    },
+    initialize:function() {
+        this.render();
+        this.$el.hide();
+    },
+    render:function() {
+
+    },
+    open:function(state) {
+
+        this.template('moretime', {title: "Do you need more time"
+        });
+        // Start the screensaver timer ticking here
+        this.trigger('game:canstart');
+        this.show();
+    },
+    yes:function() {
+        this.hide();
+        // Clear the screensaver timer ticking here
+        this.trigger('game:cannotstart');
+        // restart the warning timer
+        this.clearTimer();
+        this.startTimer();
+    },
+    show:function() {
+        this.$el.show();
+    },
+    hide:function() {
+        this.$el.hide();
+    },
+    startTimer:function() {
+        this.countdown = setTimeout(_.bind(this.open, this), this.config.timer);
+    },
+    clearTimer:function() {
+        clearTimeout(this.countdown);
+    }
 });
 })();
 (function() {
@@ -587,51 +631,6 @@ Blaze.dna.ScreenSaver = Blaze.View.extend({
 });
 })();
 (function() {
-    Blaze.dna.MoreTime = Blaze.View.extend({
-        className:'moretime overlay',
-        configid:'MoreTime',
-        mixins:['hashBinder', 'globalEvents' ,'templated', 'configurable'],
-        events:{
-            'click .js-yes':'yes'
-        },
-        initialize:function() {
-            this.render();
-            this.$el.hide();
-        },
-        render:function() {
-
-        },
-        open:function(state) {
-
-            this.template('moretime', {title: "Do you need more time"
-            });
-            // Start the screensaver timer ticking here
-            this.trigger('game:canstart');
-            this.show();
-        },
-        yes:function() {
-            this.hide();
-            // Clear the screensaver timer ticking here
-            this.trigger('game:cannotstart');
-            // restart the warning timer
-			this.clearTimer();
-            this.startTimer();
-        },
-        show:function() {
-            this.$el.show();
-        },
-        hide:function() {
-            this.$el.hide();
-        },
-        startTimer:function() {
-            this.countdown = setTimeout(_.bind(this.open, this), this.config.timer);
-        },
-        clearTimer:function() {
-            clearTimeout(this.countdown);
-        }
-    });
-})();
-(function() {
 Blaze.dna.SolutionPopup = Blaze.View.extend({
 	className:'solution-popup animated',
 	id:'SolutionPopup',
@@ -855,7 +854,9 @@ Blaze.dna.StartScreen = Blaze.View.extend({
 	},
 	showPlay:function() {
 		this.$('.play-button').show();
-        this.$('.play-button2').show();
+		this.$('.play-button2').show();
+        this.$('.beginner').show();
+        this.$('.advanced').show();
 		this.trigger('game:canstart');
 	}
 });
@@ -1277,8 +1278,8 @@ Blaze.dna.Game = Blaze.Application.extend({
 		this.addView('start', new Blaze.dna.StartScreen(
 		), "#GameFrame", {
             'game:start':'startGame',
-			'game:startWithoutTimer':'startGameWithoutTimer',
-			'game:startWithTimer':'startGameWithTimer',
+            'game:startWithoutTimer':'startGameWithoutTimer',
+            'game:startWithTimer':'startGameWithTimer',
 			'game:canstart':'startScreenSaverTimer'
 		});
 
@@ -1371,7 +1372,6 @@ Blaze.dna.Game = Blaze.Application.extend({
     },
 	showInstructions:function() {
 		this.getView('start').show();
-		/*this.getView('timer').intro();*/
 	},
 	startGame:function() {
         this.getView('start').hide();
@@ -1381,18 +1381,18 @@ Blaze.dna.Game = Blaze.Application.extend({
         this.gameModel.advanceRound();
         this.triggerGlobal('game:start', this.gameModel);
         this.startRound();
-	},
+    },
     startGameWithTimer:function() {
         this.showTimer=true;
-        this.startGame()
+        this.startGame();
     },
-	startWarningTimer: function() {
+    startWarningTimer: function() {
         // Start the warning timer
         this.getView('moretime').startTimer();
 	},
     startGameWithoutTimer:function() {
         this.showTimer=false;
-        this.startGame()
+        this.startGame();
     },
 	startRound:function() {
 		this.triggerGlobal('game:round:start');
@@ -1401,10 +1401,10 @@ Blaze.dna.Game = Blaze.Application.extend({
 		this.gameModel.advanceRound();
 		this.gameModel.accumulateResources();
 		this.getView('timeline').up();
-		//Need to have the screensaver end the game
-		if (!this.showTimer) {
-			this.startWarningTimer();
-		}
+        //Need to have the screensaver end the game
+        if (!this.showTimer) {
+            this.startWarningTimer();
+        }
 		Q.fcall(this.updateTimeline)
 			.then(this.adjustPopulation)
 			.then(this.adjustResources)
@@ -1486,9 +1486,9 @@ Blaze.dna.Game = Blaze.Application.extend({
 		}
 
 		this.getView('popup').hide();
-		if (this.showTimer)
-			this.getView('timer').stopTimer();
-		//clear the screensaver timer
+        if (this.showTimer)
+            this.getView('timer').stopTimer();
+        //clear the screensaver timer
         this.getView('saver').clearTimer();
 		this.getView('wheel').hide();
 
