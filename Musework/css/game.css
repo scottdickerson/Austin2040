@@ -8,6 +8,8 @@ html, body{
 	height:100%;
 	font-family: 'GnuolaneRg';
 	background-color: #000000;
+	background: url('../images/bg-pattern.jpg') no-repeat;
+	background-size: cover;
 }
 .game-frame{
 	height:1080px;
@@ -15,9 +17,6 @@ html, body{
 	margin: 0 auto;
 	position: relative;
 	overflow: hidden;
-	background: url('../images/bg-pattern.jpg') no-repeat;
-	background-size: cover;
-
 }
 .overlay{
 	position: absolute;
@@ -750,3 +749,30 @@ html, body{
 	width:1920px;
 	height:1020px;
 }
+
+
+
+
+
+.screen-saver{
+	display:none !important;
+}
+/*@media only screen and (min-width : 1025px) {
+  .game-frame {
+    -moz-transform: scale(0.595);
+    -webkit-transform: scale(0.595);
+    transform: scale(0.595);
+    transform-origin: top left; } }
+@media only screen and (min-width : 1400px) {
+  .game-frame {
+    -moz-transform: scale(0.695);
+    -webkit-transform: scale(0.695);
+    transform: scale(0.695);
+    transform-origin: top left; } }*/
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) {
+  .game-frame {
+    -moz-transform: scale(0.736);
+    -webkit-transform: scale(0.736);
+    transform: scale(0.736);
+    transform-origin: top left; } }
+
