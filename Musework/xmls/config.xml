@@ -42,7 +42,7 @@
 	</profile>
 
 	<profile name="StartScreen">
-		<config name="instructionTime" value="4500" />
+		<config name="instructionTime" value="3500" />
 	</profile>
 
 	<profile name="ScreenSaver">
@@ -52,7 +52,5 @@
 	<profile name="MoreTime">
 		<config name="timer" value="540000" />
 	</profile>
-
-
 
 </configs>
