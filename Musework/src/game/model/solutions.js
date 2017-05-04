@@ -46,9 +46,18 @@ Blaze.dna.SolutionCollection = Blaze.Collection.extend({
 		//console.log('solution map', this.smap);
 	},
 	draw:function(cnt) {
-		return  this.chain().filter(function(m) {
+		var selectedSolutions = this.chain().filter(function(m) {
 			return !m.isUsed();
 		}).shuffle().first(cnt || 3).value();
+
+		// If every solution is not affordable draw again
+		if (selectedSolutions.every(function(solution) {
+			return !Blaze.app.gameModel.isAfordable(solution.get("resources"));
+		})) {
+            return this.draw(cnt || 3);
+		} else {
+            return selectedSolutions;
+        }
 	},
 	listUsed:function() {
 		return this.chain().filter(function(m) { return m.get('applied'); }).pluck('id').value();
@@ -57,5 +66,5 @@ Blaze.dna.SolutionCollection = Blaze.Collection.extend({
 		return this.chain().filter(function(m) {
 			return m.get('adjust_water') > 0;
 		}).shuffle().first().value();
-	}
+	},
 });

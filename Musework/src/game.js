@@ -1,4 +1,4 @@
-/*! this is a compiled file do not change austin2040.core - v0.1.0 - 2017-04-17 */
+/*! this is a compiled file do not change austin2040.core - v0.1.0 - 2017-05-03 */
 (function() {
 var i = 0;
 
@@ -180,9 +180,18 @@ Blaze.dna.SolutionCollection = Blaze.Collection.extend({
 		//console.log('solution map', this.smap);
 	},
 	draw:function(cnt) {
-		return  this.chain().filter(function(m) {
+		var selectedSolutions = this.chain().filter(function(m) {
 			return !m.isUsed();
 		}).shuffle().first(cnt || 3).value();
+
+		// If every solution is not affordable draw again
+		if (selectedSolutions.every(function(solution) {
+			return !Blaze.app.gameModel.isAfordable(solution.get("resources"));
+		})) {
+            return this.draw(cnt || 3);
+		} else {
+            return selectedSolutions;
+        }
 	},
 	listUsed:function() {
 		return this.chain().filter(function(m) { return m.get('applied'); }).pluck('id').value();
@@ -191,7 +200,7 @@ Blaze.dna.SolutionCollection = Blaze.Collection.extend({
 		return this.chain().filter(function(m) {
 			return m.get('adjust_water') > 0;
 		}).shuffle().first().value();
-	}
+	},
 });
 })();
 (function() {
@@ -335,6 +344,8 @@ Blaze.dna.MoreTime = Blaze.View.extend({
         // Start the screensaver timer ticking here
         this.trigger('game:canstart');
         this.show();
+        this.touchListener = document.addEventListener("touchstart", _.bind(this.yes, this), false);
+        this.mouseListener = document.addEventListener("mousedown", _.bind(this.yes, this), false);
     },
     yes:function() {
         this.hide();
@@ -343,6 +354,8 @@ Blaze.dna.MoreTime = Blaze.View.extend({
         // restart the warning timer
         this.clearTimer();
         this.startTimer();
+        document.removeEventListener("touchstart", this.yes, false);
+        document.removeEventListener("mousedown", this.yes, false);
     },
     show:function() {
         this.$el.show();

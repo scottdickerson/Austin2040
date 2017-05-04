@@ -19,6 +19,8 @@ Blaze.dna.MoreTime = Blaze.View.extend({
         // Start the screensaver timer ticking here
         this.trigger('game:canstart');
         this.show();
+        this.touchListener = document.addEventListener("touchstart", _.bind(this.yes, this), false);
+        this.mouseListener = document.addEventListener("mousedown", _.bind(this.yes, this), false);
     },
     yes:function() {
         this.hide();
@@ -27,6 +29,8 @@ Blaze.dna.MoreTime = Blaze.View.extend({
         // restart the warning timer
         this.clearTimer();
         this.startTimer();
+        document.removeEventListener("touchstart", this.yes, false);
+        document.removeEventListener("mousedown", this.yes, false);
     },
     show:function() {
         this.$el.show();
