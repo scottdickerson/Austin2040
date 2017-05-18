@@ -136,6 +136,15 @@ html, body{
 	border:none;
 	cursor: pointer;;
 }
+.skip-intro-button {
+	height: 44px;
+	width:150px;
+	position: absolute;
+	right: 54px;px;
+	top:390px;
+	border:none;
+	cursor: pointer;
+}
 
 .actions-row {
 	display: flex;
@@ -152,7 +161,7 @@ html, body{
 	margin-right: 30px;
 }
 .button-text {
-	height: 25px;
+	height: 60px;
 	margin-top: 10px;
 }
 

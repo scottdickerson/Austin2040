@@ -95,7 +95,8 @@ Blaze.dna.Game = Blaze.Application.extend({
 			model:this.gameModel
 		}), '#GameFrame', {
 			'tranistion:complete':'next',
-			'game:return':'restart'
+			'game:return':'restart',
+            'game:skipIntro':'skipIntro'
 		});
 
 		this.addView('water', new Blaze.dna.WaterMeter({
@@ -171,10 +172,14 @@ Blaze.dna.Game = Blaze.Application.extend({
 	showInstructions:function() {
 		this.getView('start').show();
 	},
+	skipIntro: function() {
+        this.getView('start').skipIntro();
+	},
 	startGame:function() {
         this.getView('start').hide();
         this.getView('timer').hide();
         this.getView('saver').clearTimer();
+        this.getView('timeline').hideSkipIntro();
         this.gameModel.reset();
         this.gameModel.advanceRound();
         this.triggerGlobal('game:start', this.gameModel);

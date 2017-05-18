@@ -3,7 +3,8 @@ Blaze.dna.TimelineMeter = Blaze.View.extend({
 	id:'Header',
 	mixins:['hashBinder', 'modelEvents', 'templated', 'transitionable'],
 	events:{
-		'click .header-restart-button':'restart'
+		'click .header-restart-button':'restart',
+        'click .skip-intro-button': 'skipIntro',
 	},
 	transitions:{
 		year:function(el, view) {
@@ -49,6 +50,14 @@ Blaze.dna.TimelineMeter = Blaze.View.extend({
 	},
 	restart:function() {
 		this.trigger('game:return');
-	}
-
+	},
+    skipIntro:function() {
+        this.trigger('game:skipIntro');
+    },
+	hideSkipIntro: function() {
+        this.$('.skip-intro-button').hide();
+	},
+	showSkipIntro: function() {
+        this.$('.skip-intro-button').show();
+    },
 });

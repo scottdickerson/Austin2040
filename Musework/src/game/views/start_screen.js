@@ -28,6 +28,11 @@ Blaze.dna.StartScreen = Blaze.View.extend({
 			this.instruct();
 		}
 	},
+    skipIntro:function() {
+        //Stop the help messages
+        this.count = this.totalHelp;
+        this.showPlay();
+    },
 	start:function() {
 		this.trigger('game:startWithoutTimer');
 	},

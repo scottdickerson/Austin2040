@@ -1,4 +1,4 @@
-/*! this is a compiled file do not change austin2040.core - v0.1.0 - 2017-05-03 */
+/*! this is a compiled file do not change austin2040.core - v0.1.0 - 2017-05-17 */
 (function() {
 var i = 0;
 
@@ -850,6 +850,11 @@ Blaze.dna.StartScreen = Blaze.View.extend({
 			this.instruct();
 		}
 	},
+    skipIntro:function() {
+        //Stop the help messages
+        this.count = this.totalHelp;
+        this.showPlay();
+    },
 	start:function() {
 		this.trigger('game:startWithoutTimer');
 	},
@@ -880,7 +885,8 @@ Blaze.dna.TimelineMeter = Blaze.View.extend({
 	id:'Header',
 	mixins:['hashBinder', 'modelEvents', 'templated', 'transitionable'],
 	events:{
-		'click .header-restart-button':'restart'
+		'click .header-restart-button':'restart',
+        'click .skip-intro-button': 'skipIntro',
 	},
 	transitions:{
 		year:function(el, view) {
@@ -926,8 +932,16 @@ Blaze.dna.TimelineMeter = Blaze.View.extend({
 	},
 	restart:function() {
 		this.trigger('game:return');
-	}
-
+	},
+    skipIntro:function() {
+        this.trigger('game:skipIntro');
+    },
+	hideSkipIntro: function() {
+        this.$('.skip-intro-button').hide();
+	},
+	showSkipIntro: function() {
+        this.$('.skip-intro-button').show();
+    },
 });
 })();
 (function() {
@@ -1310,7 +1324,8 @@ Blaze.dna.Game = Blaze.Application.extend({
 			model:this.gameModel
 		}), '#GameFrame', {
 			'tranistion:complete':'next',
-			'game:return':'restart'
+			'game:return':'restart',
+            'game:skipIntro':'skipIntro'
 		});
 
 		this.addView('water', new Blaze.dna.WaterMeter({
@@ -1386,10 +1401,14 @@ Blaze.dna.Game = Blaze.Application.extend({
 	showInstructions:function() {
 		this.getView('start').show();
 	},
+	skipIntro: function() {
+        this.getView('start').skipIntro();
+	},
 	startGame:function() {
         this.getView('start').hide();
         this.getView('timer').hide();
         this.getView('saver').clearTimer();
+        this.getView('timeline').hideSkipIntro();
         this.gameModel.reset();
         this.gameModel.advanceRound();
         this.triggerGlobal('game:start', this.gameModel);
