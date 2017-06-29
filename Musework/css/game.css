@@ -10,6 +10,7 @@ html, body{
 	background-color: #000000;
 	background: url('../images/bg-pattern.jpg') no-repeat;
 	background-size: cover;
+	overflow: hidden;
 }
 .game-frame{
 	height:1080px;
