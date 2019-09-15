@@ -1,10 +1,17 @@
+# Austin 2040
+
 ## Installing the app development environment
 
-- Install npm, nodejs
+- Install yarn, nodejs
 - Setup the dependencies
-cd Musework
-npm install
+  cd Musework
+  yarn install
 
 ## Install Grunt CLI to build the production version of the files from source
-sudo npm install -g grunt-cli
-grunt
+
+yarn add grunt-cli
+./node_modules/.bin/grunt
+
+## Start up the server to serve the built files
+
+serve -s . -l 3003
