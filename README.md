@@ -14,4 +14,5 @@ yarn add grunt-cli
 
 ## Start up the server to serve the built files
 
+yarn global add serve
 serve -s . -l 3003
