@@ -19,14 +19,11 @@ jobs:
         uses: actions/checkout@v3
       - name: Run Contrast SCA Fingerprint
         id: fingerprint
-        uses: 'Contrast-Security-Inc/contrast-sca-action@main'
+        uses: 'Contrast-Security-OSS/contrast-sca-action@action-update-to-v2'
         with:
-          # This is a temporary input variable to be used for testing the dev version of the CLI
-          # being pulled from artifactory. We will manually set this secret per repo for testing.
-          artApiKey: ${{ secrets.TEMP_ART_API_KEY }}
           apiKey: ${{ secrets.CONTRAST_GITHUB_APP_API_KEY }}
-          orgId: ${{ vars.CONTRAST_GITHUB_APP_ORG_ID }}
           authHeader: ${{ secrets.CONTRAST_GITHUB_APP_AUTH_HEADER }}
+          orgId: ${{ vars.CONTRAST_GITHUB_APP_ORG_ID }}
           apiUrl: ${{ vars.CONTRAST_GITHUB_APP_TS_URL }}
           repoUrl: ${{ github.server_url }}/${{ github.repository }}
           repoName: ${{ github.repository }}
@@ -45,14 +42,11 @@ jobs:
       - name: Clone repository
         uses: actions/checkout@v3
       - name: Run Contrast SCA Audit
-        uses: 'Contrast-Security-Inc/contrast-sca-action@main'
+        uses: 'Contrast-Security-OSS/contrast-sca-action@action-update-to-v2'
         with:
-          # This is a temporary input variable to be used for testing the dev version of the CLI
-          # being pulled from artifactory. We will manually set this secret per repo for testing.
-          artApiKey: ${{ secrets.TEMP_ART_API_KEY }}
           apiKey: ${{ secrets.CONTRAST_GITHUB_APP_API_KEY }}
-          orgId: ${{ vars.CONTRAST_GITHUB_APP_ORG_ID }}
           authHeader: ${{ secrets.CONTRAST_GITHUB_APP_AUTH_HEADER }}
+          orgId: ${{ vars.CONTRAST_GITHUB_APP_ORG_ID }}
           apiUrl: ${{ vars.CONTRAST_GITHUB_APP_TS_URL }}
           filePath: ${{ matrix.manifest.filePath }}
           repositoryId: ${{ matrix.manifest.repositoryId }}
